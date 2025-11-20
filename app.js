@@ -1,0 +1,4 @@
+const ui=document.getElementById('ui');const out=document.getElementById('out');
+ui.innerHTML='<input id="income" type="number" value="4000" /><input id="needs" type="number" value="50" /><input id="wants" type="number" value="30" /><input id="save" type="number" value="20" /><button id="calc">Allocate</button>';
+function run(){const income=Number(document.getElementById('income').value||0);const n=Number(document.getElementById('needs').value||0),w=Number(document.getElementById('wants').value||0),s=Number(document.getElementById('save').value||0);const total=n+w+s;out.textContent=`Income: $${income.toFixed(2)}\nNeeds: $${(income*n/100).toFixed(2)} (${n}%)\nWants: $${(income*w/100).toFixed(2)} (${w}%)\nSavings: $${(income*s/100).toFixed(2)} (${s}%)\nPercent total: ${total}%`;}
+ui.onclick=e=>{if(e.target.id==='calc')run()};ui.addEventListener('input',run);run();
